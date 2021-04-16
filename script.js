@@ -1,6 +1,5 @@
 window.addEventListener("load", function () {
 
-    // NAV
     function LoadNav() {
         let nav = document.querySelector(".nav");
         let navtoggle = nav.querySelector(".toggler")
@@ -12,7 +11,6 @@ window.addEventListener("load", function () {
     LoadNav();
 
 
-    // CAROUSEL
     let imagecontainer;
     let images;
     let next;
@@ -29,8 +27,7 @@ window.addEventListener("load", function () {
 
 
 
-    // Get current DOM
-    function getState() {
+    function getDom() {
         imagecontainer = document.querySelector(".slider-images");
         images = document.querySelectorAll(".slide-image");
 
@@ -41,11 +38,9 @@ window.addEventListener("load", function () {
         prev = document.querySelector(".prev");
 
         width = images[0].clientWidth;
-        // i am translating content by 100% of the hero__content width, not the content's container width
         contentwidth = document.querySelector(".hero__content").clientWidth;
     }
 
-    // initialize logic
     function setLogic(images) {
         curposition = 0;
         maxpos = images.length - 1;
@@ -69,11 +64,9 @@ window.addEventListener("load", function () {
 
     }
 
-    // translates image/content container based on the current position of the carousel
     function translateX() {
         let moveto = images[curposition].style.left;
         let movecontentto = contents[curposition].style.left;
-        // console.log(`moving to position: ${moveto}`);
         imagecontainer.style.transform = `translateX(-${moveto})`;
         contentsContainer.style.transform = `translateX(-${movecontentto})`;
     }
@@ -105,7 +98,7 @@ window.addEventListener("load", function () {
 
 
     // Load Carousel
-    getState();
+    getDom();
     setLogic(images);
     stack(images, contents);
     addListeners();
