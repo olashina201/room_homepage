@@ -1,0 +1,185 @@
+@font-face {
+    font-family: Spartan;
+    src: url(./fonts/Spartan-Bold.ttf);
+}
+
+@font-face {
+    font-family: Spartan;
+    src: url(./fonts/Spartan-Regular.ttf);
+    font-weight: normal;
+}
+@font-face {
+    font-family: Spartan;
+    src: url(./fonts/Spartan-Black.ttf);
+    font-weight: black;
+}
+
+.nav-bar{
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-top: 30px;
+    margin-left: 50px;
+}
+.logo{
+    display: flex;
+    align-content: flex-start;
+}
+
+ul{
+    list-style: none;
+    margin: 25px;
+}
+li{
+    display: inline-block;
+    margin-left: 20px;
+}
+a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+p{
+    color: hsl(0, 0%, 63%);
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.content{
+    display: flex;
+    flex-direction: row;
+}
+
+.second{
+    padding: 40px;
+}
+
+button{
+    width: 80px;
+    height: 50px;
+    border: none;
+    display: inline-block;
+    background-color: hsl(0, 0%, 0%);
+}
+button:hover{
+    background-color: hsl(0, 0%, 27%);
+}
+.slide-images{
+    position: relative;
+  height: 100%;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+.slide-image {
+    height: 65vh;
+  overflow-x: hidden;
+  position: relative;
+  }
+.slide-btn{
+    position: absolute;
+    right: 0;
+    top: 65vh;
+    z-index: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+}
+.slider {
+    overflow: hidden;
+    position: relative;
+    height: 45rem;
+  }
+
+.slide-container{
+    position: absolute;
+  width: 100%;
+}
+
+.right{
+    position: relative;
+    height: 100%;
+    -webkit-transition: all .4s;
+    transition: all .4s;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+@media screen and (max-width: 1440px){
+    .slide-images.image1 {
+        content: url(./images/desktop-image-hero-1.jpg);
+      }
+      .slide-images.image2 {
+        content: url(./images/desktop-image-hero-2.jpg);
+      }
+      .slide-images.image3 {
+        content: url(./images/desktop-image-hero-3.jpg);
+      }
+    .right{
+        width: 40%;
+        padding: 100px;
+    }
+    
+    .left{
+        width: 60%;
+        position: relative;
+    }
+
+    .toggle{
+        display: none;
+    }
+   
+}
+
+@media screen and (max-width: 704px) {
+    .content{
+        display: flex;
+        flex-direction: column;
+    }
+    .header{
+        display: flex;
+        flex-direction: column;
+    }
+    .right{
+        width: 50%;
+        padding: 100px;
+    }
+    
+    .left{
+        width: 50%;
+        position: relative;
+    }
+    .image{
+        width: 500px;
+    }
+    
+    h2,p{
+        text-align: center;
+    }
+    .toggle{
+        display: block;
+    }
+    ul{
+        display: none;
+        background-color: #000;
+    }
+    
+    
+}
