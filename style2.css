@@ -16,17 +16,9 @@ body {
   font-family: 'Spartan',
  sans-serif;
   font-size: 1.2rem;
+  box-sizing: border-box;
 }
 
-::-webkit-scrollbar {
-  width: 7px;
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: black;
-  border-radius: 5px;
-}
 
 .container {
   width: 80%;
@@ -45,7 +37,6 @@ body {
   position: absolute;
   top: 0;
   width: 100%;
-  user-select: none;
   z-index: 1;
   padding-left: 5vw;
   padding-right: 5vw;
@@ -144,6 +135,8 @@ body {
   object-fit: cover;
 }
 
+
+
 .slide-image.image1 {
   content: url(./images/mobile-image-hero-1.jpg);
 }
@@ -225,11 +218,10 @@ body {
 .content{
   display: flex;
   flex-direction: row;
-  object-fit: cover;
 }
 
 .second{
-  padding: 80px;
+  padding: 40px;
 }
 
 @media screen and (min-width: 1024px) {
@@ -271,7 +263,17 @@ body {
 }
 
 /* desktop view */
+
 @media screen and (min-width: 1024px) {
+  .slide-image.image1 {
+    content: url(./images/desktop-image-hero-1.jpg);
+  }
+  .slide-image.image2 {
+    content: url(./images/desktop-image-hero-2.jpg);
+  }
+  .slide-image.image3 {
+    content: url(./images/desktop-image-hero-3.jpg);
+  }
   .toggler {
     display: none;
   }
