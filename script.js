@@ -1,6 +1,6 @@
 window.addEventListener("load", function () {
 
-    function LoadNav() {
+    LoadNav = () => {
         let nav = document.querySelector(".nav");
         let navtoggle = nav.querySelector(".toggler")
 
@@ -21,12 +21,10 @@ window.addEventListener("load", function () {
     let contentsContainer;
     let contentwidth;
 
-    let curposition;
+    let currentPosition;
     let maxpos;
 
-
-
-    function getDom() {
+    getDom = () => {
         imagecontainer = document.querySelector(".slider-images");
         images = document.querySelectorAll(".slide-image");
 
@@ -40,13 +38,14 @@ window.addEventListener("load", function () {
         contentwidth = document.querySelector(".hero__content").clientWidth;
     }
 
-    function setLogic(images) {
-        curposition = 0;
+    setLogic = images => {
+        currentPosition = 0;
         maxpos = images.length - 1;
     }
 
     // set images to stack beside each other
-    function stack(images, contents) {
+    
+    stack = (images, contents) => {
         images.forEach((image, index) => {
             let absposition = width * index + "px";
             image.style.left = absposition;
@@ -63,27 +62,25 @@ window.addEventListener("load", function () {
 
     }
 
-    function translateX() {
-        let moveto = images[curposition].style.left;
-        let movecontentto = contents[curposition].style.left;
+    translateX = () => {
+        let moveto = images[currentPosition].style.left;
+        let movecontentto = contents[currentPosition].style.left;
         imagecontainer.style.transform = `translateX(-${moveto})`;
         contentsContainer.style.transform = `translateX(-${movecontentto})`;
     }
 
     // add Listeners
-    function addListeners() {
-
+    addListeners = () => {
         next.addEventListener("click", () => {
-            if (curposition < maxpos) {
-                curposition += 1;
+            if (currentPosition < maxpos) {
+                currentPosition += 1;
                 translateX()
             }
         });
 
         prev.addEventListener("click", () => {
-            // if not at the last position
-            if (curposition > 0) {
-                curposition -= 1;
+            if (currentPosition > 0) {
+                currentPosition -= 1;
                 translateX()
             }
         })
@@ -91,7 +88,7 @@ window.addEventListener("load", function () {
 
     // resize the carousel
     function resizeCarousel() {
-        getState();
+        getDom();
         stack(images, contents);
     }
 

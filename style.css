@@ -240,32 +240,8 @@ h2{
   padding-right: 50px;
 }
 
-@media screen and (min-width: 1024px) {
-  .slider-container {
-    display: flex;
-  }
-  .slider-content {
-    width: 60%;
-  }
-  .slider-btn {
-    left: 60%;
-  }
-  .title {
-    font-size: 3rem;
-    font-weight: 600;
-  }
-  .hero__content {
-    width: 40%;
-    height: auto;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .image-slider-content {
-    width: 80%;
-    margin: 0 auto;
-  }
+@media screen and (min-width: 700px) {
+  
 }
 
 @media screen and (max-width: 704px) {
@@ -280,7 +256,7 @@ h2{
 
 /* desktop view */
 
-@media screen and (min-width: 1024px) {
+@media screen and (min-width: 700px) {
   .slide-image.image1 {
     content: url(./images/desktop-image-hero-1.jpg);
   }
@@ -318,5 +294,30 @@ h2{
   }
   .link:hover::after {
       transform: scaleX(0.5);
+  }
+  .slider-container {
+    display: flex;
+  }
+  .slider-content {
+    width: 60%;
+  }
+  .slider-btn {
+    left: 60%;
+  }
+  .title {
+    font-size: 3rem;
+    font-weight: 600;
+  }
+  .hero__content {
+    width: 40%;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .image-slider-content {
+    width: 80%;
+    margin: 0 auto;
   }
 }
