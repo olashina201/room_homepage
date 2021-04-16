@@ -51,7 +51,8 @@ body {
 
 .nav.active {
   background: white;
-  height: 5vh;
+  height: 10vh;
+  width: auto;
 }
 
 .nav.active .toggler {
