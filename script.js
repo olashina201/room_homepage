@@ -21,7 +21,6 @@ window.addEventListener("load", function () {
     let contentsContainer;
     let contentwidth;
 
-    // define logic 
     let curposition;
     let maxpos;
 
