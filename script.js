@@ -11,90 +11,67 @@ window.addEventListener("load", function () {
     LoadNav();
 
 
-    let imagecontainer;
-    let images;
-    let next;
-    let prev;
-    let width;
+    let currentIndex;
+    let lastIndex;
 
-    let contents;
-    let contentsContainer;
-    let contentwidth;
+    var imagecontainer = document.querySelector(".slider-images");
+    var images = document.querySelectorAll(".slide-image");
 
-    let currentPosition;
-    let maxpos;
+    var contents = document.querySelectorAll(".image-content");
+    var contentsContainer = document.querySelector(".image-slider-content");
 
-    getDom = () => {
-        imagecontainer = document.querySelector(".slider-images");
-        images = document.querySelectorAll(".slide-image");
+    var next = document.querySelector(".next");
+    var prev = document.querySelector(".prev");
 
-        contents = document.querySelectorAll(".image-content");
-        contentsContainer = document.querySelector(".image-slider-content");
-
-        next = document.querySelector(".next");
-        prev = document.querySelector(".prev");
-
-        width = images[0].clientWidth;
-        contentwidth = document.querySelector(".hero__content").clientWidth;
-    }
+    var width = images[0].clientWidth;
+    var contentwidth = document.querySelector(".hero__content").clientWidth;
 
     setLogic = images => {
-        currentPosition = 0;
-        maxpos = images.length - 1;
+        currentIndex = 0;
+        lastIndex = images.length - 1;
     }
 
-    // set images to stack beside each other
+    //set images to stack beside each other
     
     stack = (images, contents) => {
         images.forEach((image, index) => {
             let absposition = width * index + "px";
             image.style.left = absposition;
-            // console.log(`set image ${index} to absolute position left: ${absposition}`);
         });
 
         contents.forEach((content, index) => {
             let absposition = contentwidth * index + "px";
             content.style.left = absposition;
         });
-
-        // also translate the containers after stacking
+        //also translate the containers after stacking
         translateX()
 
     }
 
     translateX = () => {
-        let moveto = images[currentPosition].style.left;
-        let movecontentto = contents[currentPosition].style.left;
+        let moveto = images[currentIndex].style.left;
+        let movecontentto = contents[currentIndex].style.left;
         imagecontainer.style.transform = `translateX(-${moveto})`;
         contentsContainer.style.transform = `translateX(-${movecontentto})`;
     }
 
-    // add Listeners
+    //add Listeners
     addListeners = () => {
         next.addEventListener("click", () => {
-            if (currentPosition < maxpos) {
-                currentPosition += 1;
+            if (currentIndex < lastIndex) {
+                currentIndex += 1;
                 translateX()
             }
         });
 
         prev.addEventListener("click", () => {
-            if (currentPosition > 0) {
-                currentPosition -= 1;
+            if (currentIndex > 0) {
+                currentIndex -= 1;
                 translateX()
             }
         })
     }
 
-    // resize the carousel
-    function resizeCarousel() {
-        getDom();
-        stack(images, contents);
-    }
-
-
-    // Load Carousel
-    getDom();
     setLogic(images);
     stack(images, contents);
     addListeners();
